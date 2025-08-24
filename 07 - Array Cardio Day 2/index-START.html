@@ -14,7 +14,7 @@
       { name: 'Wes', year: 1988 },
       { name: 'Kait', year: 1986 },
       { name: 'Irv', year: 1970 },
-      { name: 'Lux', year: 2015 }
+      { name: 'Lux', year: 2015 },
     ];
 
     const comments = [
@@ -27,15 +27,38 @@
 
     // Some and Every Checks
     // Array.prototype.some() // is at least one person 19 or older?
+    const DT_CURRENT = new Date();
+    const DT_CURRENT_YR = DT_CURRENT.getFullYear();
+    const INT_NINETEEN_YRS_OLD = 19;
+
+    const isAdult = people.some(person => (DT_CURRENT_YR - person.year) >= INT_NINETEEN_YRS_OLD );
+
+    console.log({ isAdult });
+
     // Array.prototype.every() // is everyone 19 or older?
+    const allAdults = people.every(person => (DT_CURRENT_YR - person.year) >= INT_NINETEEN_YRS_OLD );
+
+    console.log({ allAdults });
 
     // Array.prototype.find()
     // Find is like filter, but instead returns just the one you are looking for
     // find the comment with the ID of 823423
+    const INT_FIND_ID = 823423;
+    const OBJ_COMMENT = comments.find(comment => comment.id === INT_FIND_ID);
+    
+    console.log(OBJ_COMMENT);
 
     // Array.prototype.findIndex()
     // Find the comment with this ID
+    const INT_FOUND_IDX_ID = comments.findIndex(comment => comment.id === INT_FIND_ID);
+
+    console.log(INT_FOUND_IDX_ID);
+
     // delete the comment with the ID of 823423
+    comments.splice(INT_FOUND_IDX_ID, 1);
+
+    console.log(comments);
+
 
   </script>
 </body>
